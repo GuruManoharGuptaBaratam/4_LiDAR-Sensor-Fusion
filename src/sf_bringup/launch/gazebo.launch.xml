@@ -1,0 +1,22 @@
+<launch>
+    <let name='gazebo_pkg_path' value='$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py'/>
+    <let name="urdf_path" value = "$(find-pkg-share sf_bringup)/urdf/sensor_base.urdf.xacro" />
+    <let name="gazebo_config_path" value="$(find-pkg-share sf_bringup)/config/gz_ros_bridge.yaml"/>
+
+    <include file='$(var gazebo_pkg_path)'>
+        <arg name="gz_args" value="empty.sdf -r"/>
+        <!-- <arg name="gz_args" value="$(find-pkg-share nav2_bot_bringup)/worlds/custom_world.sdf -r"/> -->
+    </include>
+    <node pkg="robot_state_publisher" exec="robot_state_publisher">
+        <param name="robot_description" value="$(command 'xacro $(var urdf_path)')" />
+    </node>
+    <node pkg="ros_gz_sim" exec="create" args="-topic robot_description"/>
+
+
+    <node pkg="rviz2" exec="rviz2" output="screen" args="-d $(find-pkg-share sf_bringup)/rviz/urdf_config.rviz"/>
+
+    <node pkg="ros_gz_bridge" exec="parameter_bridge">
+        <param name="config_file" value="$(var gazebo_config_path)" />
+    </node> 
+    
+</launch>

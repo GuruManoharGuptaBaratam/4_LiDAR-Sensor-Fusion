@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<robot name="lidar_fusion">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.4 0.3 0.02"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.4 0.3 0.02"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="1.0"/>
+      <inertia
+        ixx="0.01" ixy="0.0" ixz="0.0"
+        iyy="0.01" iyz="0.0"
+        izz="0.01"/>
+    </inertial>
+  </link>
+
+
+  <link name="lidar_A">
+    <visual>
+      <geometry>
+        <cylinder radius="0.03" length="0.05"/>
+      </geometry>
+    </visual>
+  </link>
+
+
+  <link name="lidar_B">
+    <visual>
+      <geometry>
+        <cylinder radius="0.03" length="0.05"/>
+      </geometry>
+
+    </visual>
+  </link>
+
+  <link name="lidar_C">
+    <visual>
+      <geometry>
+        <cylinder radius="0.03" length="0.05"/>
+      </geometry>
+
+    </visual>
+  </link>
+
+  <link name="lidar_D">
+    <visual>
+      <geometry>
+        <cylinder radius="0.03" length="0.05"/>
+      </geometry>
+
+    </visual>
+  </link>
+
+
+  <joint name="base_to_lidar_A" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_A"/>
+
+    <origin xyz="0.2 0.15 0.035" rpy="0 0 0.7854"/>
+  </joint>
+
+  
+  <joint name="base_to_lidar_B" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_B"/>
+
+    <origin xyz="-0.2 -0.15 0.035" rpy="0 0 -2.3562"/>
+  </joint>
+
+  <joint name="base_to_lidar_C" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_C"/>
+
+    <origin xyz="-0.2 0.15 0.035" rpy="0 0 2.3562"/>
+  </joint>
+
+   <joint name="base_to_lidar_D" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_D"/>
+
+    <origin xyz="0.2 -0.15 0.035" rpy="0 0 -0.7854"/>
+  </joint>
+
+    <gazebo>
+    <plugin
+        filename="gz-sim-sensors-system"
+        name="gz::sim::systems::Sensors">
+        <!-- <render_engine>ogre2</render_engine> -->
+    </plugin>
+    </gazebo>
+
+<gazebo reference="lidar_A">
+  <sensor name="lidar_A_sensor" type="gpu_lidar">
+    <always_on>true</always_on>
+    <update_rate>15</update_rate>
+    <topic>lidar_A/scan</topic>
+    <gz_frame_id>lidar_A</gz_frame_id>
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <min_angle>-1.5708</min_angle>
+          <max_angle>1.5708</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.12</min>
+        <max>10.0</max>
+      </range>
+    </lidar>
+  </sensor>
+</gazebo>
+
+
+<gazebo reference="lidar_B">
+  <sensor name="lidar_B_sensor" type="gpu_lidar">
+    <always_on>true</always_on>
+    <update_rate>15</update_rate>
+    <topic>lidar_B/scan</topic>
+    <gz_frame_id>lidar_B</gz_frame_id>
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <min_angle>-1.5708</min_angle>
+          <max_angle>1.5708</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.12</min>
+        <max>10.0</max>
+      </range>
+    </lidar>
+  </sensor>
+</gazebo>
+
+<gazebo reference="lidar_C">
+  <sensor name="lidar_C_sensor" type="gpu_lidar">
+    <always_on>true</always_on>
+    <update_rate>15</update_rate>
+    <topic>lidar_C/scan</topic>
+    <gz_frame_id>lidar_C</gz_frame_id>
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <min_angle>-1.5708</min_angle>
+          <max_angle>1.5708</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.12</min>
+        <max>10.0</max>
+      </range>
+    </lidar>
+  </sensor>
+</gazebo>
+
+<gazebo reference="lidar_D">
+  <sensor name="lidar_D_sensor" type="gpu_lidar">
+    <always_on>true</always_on>
+    <update_rate>15</update_rate>
+    <topic>lidar_D/scan</topic>
+    <gz_frame_id>lidar_D</gz_frame_id>
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <min_angle>-1.5708</min_angle>
+          <max_angle>1.5708</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.12</min>
+        <max>10.0</max>
+      </range>
+    </lidar>
+  </sensor>
+</gazebo>
+
+</robot>

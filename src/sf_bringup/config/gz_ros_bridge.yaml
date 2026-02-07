@@ -1,0 +1,52 @@
+- ros_topic_name: "/lidar_A/scan"
+  gz_topic_name: "/lidar_A/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan" 
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/lidar_B/scan"
+  gz_topic_name: "/lidar_B/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan" 
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/lidar_A/scan/points"
+  gz_topic_name: "/lidar_A/scan/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/lidar_B/scan/points"
+  gz_topic_name: "/lidar_B/scan/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/lidar_C/scan"
+  gz_topic_name: "/lidar_C/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan" 
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/lidar_D/scan"
+  gz_topic_name: "/lidar_D/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan" 
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/lidar_C/scan/points"
+  gz_topic_name: "/lidar_C/scan/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/lidar_D/scan/points"
+  gz_topic_name: "/lidar_D/scan/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  direction: GZ_TO_ROS
+
+- topic_name: "/cmd_vel"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "gz.msgs.Twist"
+  direction: ROS_TO_GZ
