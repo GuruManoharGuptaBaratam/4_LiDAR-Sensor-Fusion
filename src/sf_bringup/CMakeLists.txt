@@ -4,7 +4,7 @@ project(sf_bringup)
 find_package(ament_cmake REQUIRED)
 
 install(
-  DIRECTORY launch urdf rviz config
+  DIRECTORY launch urdf rviz config worlds
   DESTINATION share/${PROJECT_NAME}
 )
 
